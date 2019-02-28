@@ -14,7 +14,7 @@ bucketRoute.param('id', (req,res,next,id)=>{
 
 })
 
-bucketRoute.route("/bucketlists/:id")
+bucketRoute.route("/:id")
 	.get((req,res)=>{
 
 	})
@@ -24,6 +24,21 @@ bucketRoute.route("/bucketlists/:id")
 	.delete((req,res)=>{
 
 	})
+
+
+//Get a single item from bucketlist
+bucketRoute.param("itemId", (req,res,next, id) =>{
+
+})
+
+bucketRoute.route("/:id/items")
+	.get()
+	.post()
+
+bucketRoute.route("/:id/items/:itemId")
+	.get()
+	.put()
+	.delete()
 
 
 export default bucketRoute
