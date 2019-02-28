@@ -2,9 +2,9 @@ import { Router } from "express"
 
 const bucketRoute = Router()
 
-bucketRoute.route("/bucketlists")
+bucketRoute.route("/")
 	.get((req,res)=>{
-
+		res.send('hello bucket')
 	})
 	.post((req,res)=>{
 
