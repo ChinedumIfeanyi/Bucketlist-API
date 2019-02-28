@@ -6,3 +6,6 @@ router.route("/bucketlists")
 	.get((req,res)=>{
 
 	})
+	.post((req,res)=>{
+
+	})
