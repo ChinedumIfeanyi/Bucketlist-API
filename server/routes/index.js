@@ -1,4 +1,4 @@
-import bucketRoute from "./bucketlist"
+import bucketRoute from "./Bucketlist"
 
 
 export default { bucketRoute }

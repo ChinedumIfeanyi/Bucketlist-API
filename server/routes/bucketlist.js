@@ -2,43 +2,33 @@ import { Router } from "express"
 
 const bucketRoute = Router()
 
+
+//controllers
+import { BucketListCtrl, BucketListItemCtrl } from "../controllers"
+
 bucketRoute.route("/")
-	.get((req,res)=>{
-		res.send('hello bucket')
-	})
-	.post((req,res)=>{
+	.get( BucketListCtrl.readAll )
+	.post( BucketListCtrl.Create )
 
-	})
-
-bucketRoute.param('id', (req,res,next,id)=>{
-
-})
+bucketRoute.param('id', BucketListCtrl.BucketId )
 
 bucketRoute.route("/:id")
-	.get((req,res)=>{
-
-	})
-	.put((req,res)=>{
-
-	})
-	.delete((req,res)=>{
-
-	})
+	.get( BucketListCtrl.getSingleBucket )
+	.put( BucketListCtrl.updateSingleBucket )
+	.delete( BucketListCtrl.deleteSingleBucket )
 
 
 //Get a single item from bucketlist
-bucketRoute.param("itemId", (req,res,next, id) =>{
-
-})
+bucketRoute.param("itemId", BucketListItemCtrl.ItemId)
 
 bucketRoute.route("/:id/items")
-	.get()
-	.post()
+	.get( BucketListItemCtrl.readAllItems )
+	.post( BucketListItemCtrl.CreateAnItem )
 
 bucketRoute.route("/:id/items/:itemId")
-	.get()
-	.put()
-	.delete()
+	.get( BucketListItemCtrl.getSingleBucketItem )
+	.put( BucketListItemCtrl.updateSingleBucketItem )
+	.delete( BucketListItemCtrl.deleteSingleBucketItem )
 
 
 export default bucketRoute
