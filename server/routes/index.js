@@ -1,4 +1,5 @@
-import bucketRoute from "./Bucketlist"
+import bucketRoute from "./bucketlist"
+import userRoute from './user'
 
 
-export default { bucketRoute }
+export default { bucketRoute, userRoute }
