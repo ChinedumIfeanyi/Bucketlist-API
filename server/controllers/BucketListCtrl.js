@@ -18,7 +18,13 @@ class BucketListCtrl {
 
 	//get all bucket
 	static readAll(req,res,next) {
-		Bucket.find({})
+		let query = {}
+		if(req.query.q) {
+			query.name = req.query.q
+		}else {
+			query = {}
+		}
+		Bucket.find(query)
 		.then(data =>{
 			return res.status(200).json({
 				message: "Bucket Found",
