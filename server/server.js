@@ -41,7 +41,7 @@ passport.deserializeUser(User.deserializeUser() )
 passport.use(new Strategy(User.authenticate() ))
 
 //Bucketlist Middleware
-app.use("/bucketlists", Route.bucketRoute)
+app.use("/api/v1/bucketlists", Route.bucketRoute)
 app.use("/auth", Route.userRoute)
 
 app.listen(PORT, ()=> console.log(`app starting @ ${PORT}`))
