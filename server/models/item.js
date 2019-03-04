@@ -6,11 +6,14 @@ const ItemSchema = new Schema({
 		type: String,
 		required: true
 	},
-	date_created: new Date(),
-	date_modified: new Date(),
-	done: false
+	done: {
+		type: Boolean,
+		default: false
+	}
+},{
+	timestamps: true
 })
 
-mongoose.model('Item', ItemSchema)
+export default mongoose.model('Item', ItemSchema)
 
-export default Item
+

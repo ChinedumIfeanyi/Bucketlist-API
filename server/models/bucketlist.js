@@ -1,21 +1,19 @@
 import mongoose, { Schema } from 'mongoose'
-const ObjectID = Schema.ObjectID
+const ObjectId = Schema.ObjectId
 
 const BucketSchema = new Schema({
 	name: {
 		type: String,
 		required: true
 	},
-	items: [{type: ObjectID, ref: Item}],
-	date_created: new Date(),
-	date_modified: new Date(),
+	items: [{type: ObjectId, ref: 'Item'}],
 	created_by:{
 		type: String,
 		required: true
 	}
-
+}, {
+	timestamps: true
 })
 
-mongoose.model('Bucket', BucketSchema)
+export default mongoose.model('Bucket', BucketSchema)
 
-export default Bucket
