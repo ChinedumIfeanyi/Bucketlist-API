@@ -3,6 +3,8 @@ import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import passport from 'passport'
 import Session from 'express-session'
+import cors from 'cors'
+import helmet from 'helmet'
 
 //passport startegy
 import Strategy from 'passport-local'
@@ -22,18 +24,19 @@ mongoose.connect(
 
 const PORT = process.env.NODE_ENV || 7500
 const app = express()
-
-app.use(bodyParser.json())
+app.use(cors() )
+app.use(helmet() )
+app.use(bodyParser.json() )
 app.use(bodyParser.urlencoded({
 	extended: false
-}))
+}) )
 app.use(Session({
 	saveUninitialized: false,
 	resave: false,
 	secret: 'kkdkkd'
-}))
-app.use(passport.initialize())
-app.use(passport.session())
+}) )
+app.use(passport.initialize() )
+app.use(passport.session() )
 
 passport.serializeUser(User.serializeUser() )
 passport.deserializeUser(User.deserializeUser() )
