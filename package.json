@@ -10,7 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/ChinedumIfeanyi/Bucketlist-API.git"
   },
-  "keywords": ["Express","Node", "React", "Javascript", "ES6"],
+  "keywords": [
+    "Express",
+    "Node",
+    "React",
+    "Javascript",
+    "ES6"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -28,6 +34,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.4.17"
   }
 }

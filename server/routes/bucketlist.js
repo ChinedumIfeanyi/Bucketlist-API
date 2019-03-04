@@ -4,7 +4,8 @@ const bucketRoute = Router()
 
 
 //controllers
-import { BucketListCtrl, BucketListItemCtrl } from "../controllers"
+import BucketListCtrl from "../controllers/BucketListCtrl"
+import BucketListItemCtrl from "../controllers/BucketListItemCtrl"
 
 bucketRoute.route("/")
 	.get( BucketListCtrl.readAll )
