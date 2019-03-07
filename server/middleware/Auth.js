@@ -10,7 +10,7 @@ import jwt from 'jsonwebtoken'
 
 const requireSignIn = (req,res,next) => {
 	try{
-		const token = req.headers.Authorization.split(" ")[1]
+		const token = req.headers.authorization.split(" ")[1]
 		const decoded = jwt.verify(token, 'kkdkkd')
 		req.decoded = decoded
 
