@@ -20,7 +20,8 @@ import Route from "./routes"
 mongoose.connect(
 	'mongodb://localhost/bucketapi',
 	{useNewUrlParser: true}
-)
+).then(()=> console.log('db connected'))
+.catch(error => console.log(error))
 
 const PORT = process.env.NODE_ENV || 7500
 const app = express()
