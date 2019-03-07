@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import './App.css';
 
-import Bucket from './bucket-api/Bucket.js'
+import Bucket from '../bucket-api/Bucket.js'
 
 class Bucketlist extends Component {
 	constructor(props) {
@@ -9,14 +9,14 @@ class Bucketlist extends Component {
 
 	}
 	componentDidMount() {
-		console.log('mounting')
-		Bucket.listBucket().then(data =>{
+		console.log('Bucketlist')
+		Bucket.allBucket().then(data =>{
 			console.log(data)
-			// if(data.error) {
-			// 	console.log(data.error)
-			// }else{
-			// 	console.log(data)
-			// }
+			if(data.error) {
+				console.log(data.error)
+			}else{
+				console.log(data)
+			}
 		})
 	}
 	render() {

@@ -18,7 +18,7 @@ class Register extends Component {
 
 	}
 	componentDidMount() {
-		console.log('mounting')
+		console.log('registering')
 	}
 
 	//handle form input change event

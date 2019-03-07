@@ -2,12 +2,13 @@
 
 class Bucket {
 
-	static listBucket() {
+	static allBucket() {
 		return fetch('/api/v1/bucketlists', {
-			method: 'GET',
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json'
+			"method": 'GET',
+			"headers": {
+				"Accept": "application/json",
+				"Content-Type": "application/json",
+				'Authorization': "Bearer "
 			}
 		})
 		.then(response => response.json() )

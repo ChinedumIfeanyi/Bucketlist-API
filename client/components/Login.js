@@ -21,6 +21,7 @@ class Login extends Component {
 		Auth.signIn({email: 'john@gmail.com'}).then(data =>{
 			console.log(data)
 		})
+		console.log( 'login' )
 	}
 
 	//handle form input change event
