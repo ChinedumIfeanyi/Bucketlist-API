@@ -1,16 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import { BrowserRouter as Router } from 'react-router-dom'
-//import Bucketlist from './Bucketlist'
+import { BrowserRouter as Router  } from 'react-router-dom'
 import App from './App'
 
-//import Login from './components/Login'
-
+const Mount = document.getElementById('root')
 render(
 	<Router>
 		<App />
-	</Router>, document.getElementById('root') )
+	</Router>, Mount
+)
 
 if(module.hot) {
 	module.hot.accept()

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import  { Redirect } from 'react-router-dom'
 
 import Auth from '../user-api/auth'
 
@@ -8,12 +9,14 @@ class Register extends Component {
 		super(props)
 
 		this.state = {
+			redirect: false,
+			error: "",
 			email: "",
 			password: "",
 			username: ""
 		}
 
-		this.Submit = this.Submit.bind(this)
+		this.submitForm = this.submitForm.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 
 	}
@@ -26,7 +29,8 @@ class Register extends Component {
 		this.setState({[e.target.name]: e.target.value})
 	}
 
-	Submit(){
+	submitForm(){
+		console.log('submitting')
 		const user = {
 			username: this.state.username,
 			email: this.state.email,
@@ -34,9 +38,9 @@ class Register extends Component {
 		}
 		Auth.signUp(user).then(data => {
 			if(data.error){
-				console.log(data.error)
+				this.setState({ error: data.error })
 			}else{
-				console.log(data)
+				this.setState({ redirect: true })
 			}
 		})
 	}
@@ -45,37 +49,48 @@ class Register extends Component {
 		const email = this.state.email
 		const password = this.state.password
 		const username = this.state.username
-		return (
-			<div>
 
-			<form action="/auth/register" method='POST' onSubmit={this.Submit}>
-				<div>
-					<label> Username </label>
-					<div>
-						<input onChange={ this.handleChange } value={username} type="text" name="username"  />
-					</div>
-				</div>
-				<div>
-					<label> Email </label>
-					<div>
-						<input onChange={ this.handleChange } value={email} type="email" name="email"  />
-					</div>
-				</div>
-				<div>
-					<label> Password </label>
-					<div>
-						<input onChange={ this.handleChange } value={password} type="password" name="password"  />
-					</div>
-				</div>
+		//user registration success
+		if( this.state.redirect ){
+			return <Redirect to="/auth/login" />
+		}else{
 
+			//render register page
+			return (
 				<div>
-					<input type="submit" value="Register" />
-				</div>
+				<p> {this.state.error} </p>
 
-			</form>
+
+				<form action="" method='POST' onSubmit={ this.submitForm }>
+					<div>
+						<label> Username </label>
+						<div>
+							<input onChange={ this.handleChange } value={username} type="text" name="username"  />
+						</div>
+					</div>
+					<div>
+						<label> Email </label>
+						<div>
+							<input onChange={ this.handleChange } value={email} type="email" name="email"  />
+						</div>
+					</div>
+					<div>
+						<label> Password </label>
+						<div>
+							<input onChange={ this.handleChange } value={password} type="password" name="password"  />
+						</div>
+					</div>
+
+					<div>
+						<input type="submit" value="Register" />
+					</div>
+
+				</form>
 
 			</div>
 		)
+
+		}
 	}
 }
 
