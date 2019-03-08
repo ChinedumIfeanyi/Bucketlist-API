@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import Bucket from '../bucket-api/Bucket.js'
 
-class Bucketlist extends Component {
+class Home extends Component {
 	constructor(props) {
 		super(props);
 
@@ -32,31 +32,37 @@ class Bucketlist extends Component {
 	}
 
 	render() {
-		//success
 		const message = this.state.message
+		const bucket = this.state.response
 
-		//bucketdata from server
-		const bucketData = this.state.response.map(bucket => {
-			return (
-				<section key={ bucket._id }>
-					<div>
-						<h1>{ bucket.name } </h1>
-						<h4> Created By: { bucket.created_by } </h4>
-						<span> Created At: { new Date(bucket.createdAt).toDateString() }</span>
-					</div>
-				</section>
-			)
-		})
+		let data = ( bucket.length == 0 )
+			//no bucket found or rendered from server
+		  ? "No Bucket Found"
+
+		  //bucket rendered from server
+			: bucket.map(bucket => {
+				return (
+					<section key={ bucket._id }>
+						<div>
+							<h1>{ bucket.name } </h1>
+							<h4> Created By: { bucket.created_by } </h4>
+							<span> Created At: { new Date(bucket.createdAt).toDateString() }</span>
+						</div>
+					</section>
+				)
+			}).slice(0,1)
+
+
 
 		return (
 			<div>
 				{ message }
 
-				{ bucketData }
+				{ data }
 			</div>
 		)
 
 	}
 }
 
-export default Bucketlist;
+export default Home;

@@ -10,7 +10,7 @@ import BucketListCtrl from "../controllers/BucketListCtrl"
 import BucketListItemCtrl from "../controllers/BucketListItemCtrl"
 
 bucketRoute.route("/")
-	.get(Auth.requireSignIn, BucketListCtrl.readAll )
+	.get( BucketListCtrl.readAll )
 	.post(Auth.requireSignIn, BucketListCtrl.Create )
 
 bucketRoute.param('id', BucketListCtrl.BucketId )
