@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './Bucketlist.css';
 
 import Bucket from '../bucket-api/Bucket.js'
 
@@ -38,7 +38,7 @@ class Bucketlist extends Component {
 		//bucketdata from server
 		const bucketData = this.state.response.map(bucket => {
 			return (
-				<section key={ bucket._id }>
+				<section key={ bucket._id } className="buckets">
 					<div>
 						<h1>{ bucket.name } </h1>
 						<h4> Created By: { bucket.created_by } </h4>
@@ -49,11 +49,16 @@ class Bucketlist extends Component {
 		})
 
 		return (
-			<div>
-				{ message }
 
-				{ bucketData }
+			<div>
+				<p className = "success"> { message } </p>
+
+				<div className="buckets">
+					{ bucketData }
+				</div>
+
 			</div>
+
 		)
 
 	}

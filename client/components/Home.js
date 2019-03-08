@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './Home.css';
 
 import Bucket from '../bucket-api/Bucket.js'
 
@@ -56,7 +56,7 @@ class Home extends Component {
 
 		return (
 			<div>
-				{ message }
+				<p className="success"> { message } </p>
 
 				{ data }
 			</div>

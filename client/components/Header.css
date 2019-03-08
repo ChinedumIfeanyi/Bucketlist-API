@@ -1,0 +1,12 @@
+
+.links {
+	height: 50px;
+	display: flex;
+	justify-content: center;
+}
+
+.link {
+	margin: 10px;
+	text-decoration: none;
+	font-size: 20px;
+}
